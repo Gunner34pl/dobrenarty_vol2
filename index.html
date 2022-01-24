@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        :root {
+            box-sizing: border-box;
+        }
+
+        * :after ::before {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bold;
+            
+        }
+
+        .info-bar {
+            background-color: lightgrey;
+        }
+
+        .info-bar-list {
+            display: flex;
+            flex-direction: row;
+            font-size: 1.2rem;
+        }
+
+        .info-bar-list li {
+            list-style: none;
+            font-size: 1rem;
+            padding: 14px 130px;
+            cursor: help;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .login {
+            display: flex;
+            flex-direction: row;
+            margin-right: 65px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .login li {
+            float: right;
+            list-style: none;
+            font-size: 1.5rem;
+            font-weight: normal;
+            padding-right: 15px;
+        }
+
+        .logo {
+            width: 220px;
+            height: auto;
+            margin-left: 65px;
+            margin-bottom: 20px;
+            margin-top: 25px;
+        }
+
+        .login a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .login a:hover {
+            color: mediumblue;
+        }
+
+        .logo img {
+            width: 220px;
+            height: auto;
+        }
+        
+        .login-list {
+            border-left: 2px solid lightgray;
+        } 
+        .search {
+            margin-top: 30px;
+        }
+        
+        .header input[type=text] {
+            border: 2px solid lightgrey;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.2rem;
+            width: 700px;
+            height: 80%;
+            padding-left: 20px;
+        }
+  
+        .rounded {
+            border-radius: 8px;
+        }    
+
+        .navbar {
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            background-color: white;
+            box-shadow: 2px 2px 3px 2px lightgray;
+
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: row;
+            font-size: 1.2rem;
+        }
+        
+        .nav li, .nav li a  {
+            text-decoration: none;
+            list-style-type: none;
+            cursor: pointer;
+            color: black;
+        }
+
+        .nav li {
+            padding: 14px 16px;
+        }
+
+        .skies-content, .snowboard-content, .skitour-content, .used-content, .other-content {
+            display: none;
+            position: absolute;
+        }
+
+        .columns {
+            display: none;
+            position: absolute;
+            float: right;
+            width: 33.3%;
+        }
+
+        .columns li {
+            font-size: 1rem !important; 
+            font-weight: normal;
+        }
+
+        .columns li:hover {
+            cursor: pointer;
+            color: lightslategrey;
+        }
+
+        h3 {
+            font-size: 1rem;
+            text-align: center;
+            cursor: context-menu;
+        }
+
+        .other-info-list:hover .columns {
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            height: auto;
+            padding-top: 15px;
+            padding-left: 0;
+            margin-top: 10px;
+            box-shadow: 2px 2px 3px 2px lightgray;
+            text-align: left;
+            background-color: white;
+        }
+        
+        #skies:hover .skies-content, #snowboard:hover .snowboard-content, #skitour:hover .skitour-content, #used:hover .used-content, #other:hover .other-content {
+            display: block;
+            width: auto;
+            height: auto;
+            padding-top: 15px;
+            padding-left: 0;
+            margin-top: 10px;
+            box-shadow: 2px 2px 3px 2px lightgray;
+            text-align: left;
+            background-color: white;
+        }
+
+        .skies-content li, .snowboard-content li, .skitour-content li, .used-content li, .other-content li {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        .skies-content li:hover, .snowboard-content li:hover, .skitour-content li:hover, .used-content li:hover, .other-content li:hover {
+            cursor: pointer;
+            color: lightslategrey;
+
+        }
+
+        .other-info-list li, .other-info-list li a {
+            list-style: none;
+            font-size: 1.2rem;
+            color: black;
+            padding: 14px 16px;
+        }
+
+        .responsive {
+          width: 100%;
+          height: auto;
+        }
+
+        .fas {
+            vertical-align: text-bottom;
+        }
+
+        .box-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            margin: auto;
+            width: 80%;
+        }
+
+        .box-one-third {
+            position: relative;
+            overflow: hidden;
+            width: 33.3%;
+            height: 250px;
+            margin: 5px;
+            color: white;
+            font-size: 3rem;
+            font-weight: bolder;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover
+        }
+
+        .skies-box {
+            background-image: url("https://cdn.pixabay.com/photo/2017/08/06/11/23/snow-2591492_960_720.jpg");
+        }
+
+        .shoe-box {
+            background-image: url("https://cdn.pixabay.com/photo/2015/02/27/00/32/touring-skis-651360_960_720.jpg");
+        }
+
+        .helmets-box {
+            background-image: url("https://cdn.pixabay.com/photo/2017/03/04/16/06/winter-2116415_960_720.jpg");
+        }
+
+        .top-left {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+
+        .box-one-third a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .recommended-section, .latest-section {
+            width: 80%;
+            margin: auto;
+            margin-bottom: 50px;
+        }
+
+        .recommended-title a {
+            color: lightskyblue;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.4rem;
+            text-decoration: none;
+            text-align: left;
+        }
+
+
+        .recommended-title a:hover {
+            color: mediumblue;
+        }
+
+        .recommended-items {
+            display: flex;
+            justify-content: center;
+        }
+
+        .items {
+            border: 1px solid lightgray;
+            width: 25%;
+            height: 400px;
+            margin: 5px;
+        }
+
+        .mission {
+            width: 70%;
+            margin-top: 50px;
+            margin: auto auto;
+            column-count: 2;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: normal;
+            padding-bottom: 50px;
+        }
+
+        .mission-title-div {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.4rem;
+            text-decoration: none;
+            text-align: left;
+            justify-content: center;
+            width: 70%;
+            margin-top: 50px;
+            margin: auto auto;
+            border-top: 1px solid lightgrey;
+        }
+
+        .our-shops-div {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.4rem;
+            text-decoration: none;
+            text-align: left;
+            justify-content: center;
+            width: 70%;
+            margin-top: 50px;
+            margin: auto auto;
+            border-top: 1px solid lightgrey;
+        }
+
+        .mission a {
+            text-decoration: none;
+            color: lightblue;
+        }
+
+        .mission a:hover {
+            color: mediumblue;
+        }
+
+        .items img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+        }
+
+        .items {
+            position: relative;
+        }
+
+        .bottom-right {
+            position: absolute;
+            left: 10px;
+            bottom: 2px;
+        }
+
+        .bottom-right p {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.1rem;
+            color:black;
+            font-weight: normal;
+            line-height: 1.2;
+        }
+
+        .price {
+            color: #eb093a;
+            font-weight: bold;
+        }
+        
+        .price-1 {
+            color: grey;
+            text-decoration: line-through;
+            font-size: 1rem;
+        }
+
+        .news-badges {
+            position: relative;
+        }
+
+        .items .new-collection {
+            padding: 7px;
+            color: white;
+            font-size: 1.1rem;
+            position: absolute;
+            left: -5px;
+            top: 5px;
+            width: auto;
+            background: #f0a608;
+        }
+
+        .discount-badges {
+            position: relative;
+        }
+
+        .items .discount {
+            padding: 7px;
+            color: white;
+            font-size: 1.1rem;
+            position: absolute;
+            left: -5px;
+            top: 40px;
+            width: auto;
+            background: #eb093a;
+        }
+
+        .sales-badges {
+            position: relative;
+        }
+
+        .items .sales {
+            padding: 7px;
+            color: white;
+            font-size: 1.1rem;
+            position: absolute;
+            left: -5px;
+            top: 5px;
+            width: auto;
+            background: #e409eb;
+        }
+
+        .our-shops {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 70%;
+            margin-top: 50px;
+            margin: auto auto;
+        }
+
+        .map img{
+            width: 100%;
+            height: auto;
+        }
+
+        .map {
+            margin: 20px;
+        }
+
+        .zak p, .mod p {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .zak a, .mod a {
+            text-decoration: none;
+            color: lightblue;
+        }
+
+        .zak a:hover, .mod a:hover {
+            color: mediumblue;
+        }
+
+        @media screen and (max-width: 1200px) {
+        * {
+            box-sizing: border-box;
+        }
+        
+        .clearfix:after {
+            clear: both;
+            content: "";
+            display: block;
+        }    
+        .nav {
+            display: flex;
+            flex-direction: column;
+            padding-left: 14px;
+        }
+
+        .header {
+            display: block;
+        }
+
+        .header input[type=text][type=text] {
+            float: none;
+            display: block;
+            text-align: center;
+            width: 100%;
+            margin: 0;
+            padding: 14px;
+        }
+
+        .info-bar-list {
+            display: flex;
+            flex-direction: column;
+            padding-left: 14px;  
+        }
+
+        .box-section {
+            display: block;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .box-one-third {
+            margin: 0px 0px 5px;
+        }
+        .skies-box, .shoe-box, .helmets-box  {
+            width: 100%;
+            height: 150px;
+        }
+
+        .recommended-section, .latest-section {
+            width: 100%;
+        }
+
+        .recommended-items {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .items {
+            min-width: 50%;
+        }
+
+        .recommended-title a {
+            text-align: left;
+        }
+
+        .items .new-collection, .items .discount, .items .sales {
+            font-size: 0.6rem;
+        }
+        }    
+    </style>
+</head>
+<body>
+    <section class="info-bar">
+        <ul class="info-bar-list">
+            <li title="Wysyłka w ciągu 24h"><i class="fas fa-truck"></i> Szybka dostawa</li>
+            <li title="Środki zwracamy w ciągu 14 dni"><i class="fas fa-wallet"></i> Gwarancja zwrotu pieniędzy</li>
+            <li title="Przy zamówieniu powyżej 100 PLN*"><i class="fas fa-gift"></i> Darmowa wysyłka*</li>
+            <li title="Infolinia dostępna w godzinach 8:00-16:00"><i class="fas fa-phone-volume"></i><a href="tel:12 443 13 28" rel="nofollow" style="text-decoration: none;"> Infolinia: 12 443 13 28</a></li>
+        </ul>
+    </section>
+    <section class="header">
+        <div class="logo">
+            <img src="https://dobrenarty.pl/themes/dobrenarty/assets/img/svg/dobrenarty-logo.svg" alt="dobrenarty-logo">
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Szukaj w naszym katalogu..." class="rounded">
+        </div>
+        <div class="login-list">
+            <ul class="login">
+                <li>
+                <i class="fas fa-sign-in-alt"></i><a href="#"> Zaloguj się</a>
+                </li>
+                <li>
+                 <i class="fas fa-cart-arrow-down"></i> <a href="#"> Koszyk</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="navbar">
+        
+        <ul class="nav">
+            <li>
+                <a href="#" style="color:#f0a608;">Nowa kolekcja </a>
+            </li>
+            <li id="skies"><a href="#">Narciarstwo <i class="fas fa-angle-down"></i></a>
+                <ul class="skies-content">
+                    <li>Narty zjazdowe</li>
+                    <li>Narty skiturowe</li>
+                    <li>Narty biegowe</li>
+                    <li>Buty narciarskie</li>
+                    <li>Kaski narciarskie</li>
+                    <li>Kijki narciarskie</li>
+                    <li>Kaski narciarskie</li>
+                    <li>Gogle narciarskie</li>
+                    <li>Odzież narciarska</li>
+                    <li>Akcesoria</li>
+                </ul>
+            </li>
+            <li id="snowboard"><a href="#">Snowboarding <i class="fas fa-angle-down"></i></a>
+                <ul class="snowboard-content">
+                    <li>Deski snowboardowe</li>
+                    <li>Buty snowboardowe</li>
+                    <li>Wiązania snowboardowe</li>
+                    <li>Akcesoria</li>
+                </ul>
+            </li>
+            <li id="skitour"><a href="#">Skituring <i class="fas fa-angle-down"></i></a>
+                <ul class="skitour-content">
+                    <li>Narty skiturowe</li>
+                    <li>Buty skiturowe</li>
+                    <li>Wiązania skiturowe</li>
+                    <li>Foki</li>
+                    <li>Kije skiturowe</li>
+                    <li>Harszle i raki</li>
+                    <li>Czekany</li>
+                    <li>Lawinowe ABC</li>
+                    <li>Kaski skiturowe</li>
+                    <li>Plecaki skiturowe</li>
+                    <li>Odzież skiturowa</li>
+                    <li>Akcesoria skiturowe</li>
+                </ul>
+            </li>
+            <li id="used"><a href="#">Używane <i class="fas fa-angle-down"></i></a>
+                <ul class="used-content">
+                    <li>Buty narciarskie</li>
+                    <li>Narty</li>
+                </ul>
+            </li>
+            <li id="other"><a href="#">Inne sporty <i class="fas fa-angle-down"></i></a>
+                <ul class="other-content">
+                    <li>Odzież i obuwie</li>
+                    <li>Rolki</li>
+                    <li>Turystyka</li>
+                    <li>Inne</li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" style="color:#eb093a">Wyprzedaże</a>
+            </li>
+            <li>   
+                <a href="#" style="color: black")>FAQ</a>
+            </li>
+            
+            
+            <li class="other-info-list">
+                <a href="#">Kontakt <i class="fas fa-angle-down"></i></a> 
+            </li>
+            <li class="other-info-list">
+                <a href="#">Usługi <i class="fas fa-angle-down"></i></a>
+            <div class="columns">
+                <div class="column">
+                    <h3>Wypożyczalnia</h3>
+                    <ul class="rent-content">
+                        <li style="color: lightgray"><i class="far fa-window-minimize"></i></li>
+                        <li>Nart</li>
+                        <li>Skitury</li>
+                        <li>Triathlon</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Narty</h3>
+                    <ul class="ski-content">
+                        <li style="color: lightgray"><i class="far fa-window-minimize"></i></li>
+                        <li>Wymiana</li>
+                        <li>Serwis</li>
+                        <li>Hurt</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul class="oth-content">
+                        <li>Bootfitting</li>
+                        <li>Narty na raty</li>
+                        <li style="color: blue; font-weight: bold;">Wkładki Footbalance</li>
+                    </ul>
+                </div>
+            </div>
+            </li>
+            <li class="other-info-list">
+                <a href="#">Marki</a>
+            </li> 
+        </ul>
+
+    </section>    
+
+    <section class="slider">
+        <div class="slider-image">
+          <a href="#"><img src="https://dobrenarty.pl/modules/ps_imageslider/images/87e2a5e4e2b866bc4deb6ba7a67791cad5213105_apparelwww.jpg" alt="" class="responsive"></a>
+        </div>
+    </section>
+
+      <section class="box-section">
+          <div class="box-one-third skies-box">
+             <div class="top-left"><a href="#">NARTY</a></div>
+          </div>
+          <div class="box-one-third shoe-box">
+              <div class="top-left"><a href="#">BUTY<br>NARCIARSKIE</a></div> 
+          </div>
+          <div class="box-one-third helmets-box">
+              <div class="top-left"><a href="#">KASKI<br>NARCIARSKIE</a></div> 
+          </div>
+      </section>
+
+      <section class="recommended-section">
+            <p class="recommended-title">
+                <a href="#">Produkty polecane <i class="fas fa-angle-double-right"></i></a>
+            </p>
+            <div class="recommended-items">
+                <div class="items">
+                    <div class="news-badges">
+                        <span class="new-collection">NOWA KOLEKCJA</span>
+                    </div>
+                    <div class="discount-badges">
+                        <span class="discount">-25%</span>
+                    </div>
+                    <img src="https://dobrenarty.pl/47740-large_default/scarpa-buty-skiturowe-f1-anthracite-ottanio.jpg" alt="">
+                    <div class="bottom-right">
+                        <p>Scarpa buty skiturowe F1 Anthracite-Ottanio<br>
+                        <span class="price-1">2499,00 zł</span><span class="price"> 2199,00 zł</span></p>
+                    </div>
+                </div>
+                <div class="items">
+                    <div class="news-badges">
+                        <span class="new-collection">NOWA KOLEKCJA</span>
+                    </div>
+                    <div class="discount-badges">
+                        <span class="discount">-25%</span>
+                    </div>
+                    <img src="https://dobrenarty.pl/144554-large_default/fischer-narty-meskie-rc-one-f18-allride-rs-11-pr.jpg" alt="">
+                    <div class="bottom-right">
+                        <p>Fischer narty męskie RC One F18 Allride + RS 11 PR<br>
+                        <span class="price-1">2089,00 zł</span><span class="price"> 1776,00 zł</span></p>
+                    </div>
+                </div>
+                <div class="items">
+                    <div class="sales-badges">
+                        <span class="sales">WYPRZEDAŻ</span>
+                    </div>
+                    <div class="discount-badges">
+                        <span class="discount">-200 pln</span>
+                    </div>
+                    <img src="https://dobrenarty.pl/54300-large_default/cmp-zestaw-narciarski-spodnie-kurtka-girl-set-blue.jpg" alt="">
+                    <div class="bottom-right">
+                        <p>CMP zestaw narciarski spodnie+kurtka Girl Set Blue<br>
+                        <span class="price-1">499,00 zł</span><span class="price"> 299,00 zł</span></p>
+                    </div>
+                </div>
+                <div class="items">
+                    <div class="news-badges">
+                        <span class="new-collection">NOWA KOLEKCJA</span>
+                    </div>
+                    <div class="discount-badges">
+                        <span class="discount">-25%</span>
+                    </div>
+                    <img src="https://dobrenarty.pl/140645-large_default/poc-kask-dzieciecy-pocito-fornix-mips-fluo-orange.jpg" alt="">
+                    <div class="bottom-right">
+                        <p>POC kask dziecięcy POCito Fornix MIPS Fluo Orange<br>
+                        <span class="price-1">699,00 zł</span><span class="price"> 799,00 zł</span></p>
+                    </div>
+                </div>
+            </div>
+
+      </section>
+      <section class="latest-section">
+            <p class="recommended-title">
+                <a href="#">Ostatnio oglądane <i class="fas fa-angle-double-right"></i></a>
+            </p>
+
+            <div class="recommended-items">
+                <div class="items">
+                    <div class="news-badges">
+                        <span class="new-collection">NOWA KOLEKCJA</span>
+                    </div>
+                    <div class="discount-badges">
+                        <span class="discount">-25%</span>
+                    </div>
+                    <img src="https://dobrenarty.pl/256777-large_default/scarpa-buty-skiturowe-maestrale-xt-cool-grey-blue.jpg" alt="">
+                    <div class="bottom-right">
+                        <p>Scarpa buty skiturowe Maestrale XT Cool Grey-Blue<br>
+                        <span class="price-1">2949,00 zł</span><span class="price"> 2499,00 zł</span></p>
+                    </div>
+                </div>
+                <div class="items">
+                    <div class="sales-badges">
+                        <span class="sales">WYPRZEDAŻ</span>
+                    </div>
+                    <div class="discount-badges">
+                        <span class="discount">-25%</span>
+                    </div>
+                    <img src="https://dobrenarty.pl/174959-large_default/grivel-czekan-g1-plus-yellow.jpg" alt="">
+                    <div class="bottom-right">
+                        <p>Grivel czekan G1 Plus yellow<br>
+                        <span class="price-1">425,00 zł</span><span class="price"> 382,00 zł</span></p>
+                    </div>
+                </div>
+                <div class="items">
+                    <div class="news-badges">
+                        <span class="new-collection">NOWA KOLEKCJA</span>
+                    </div>
+                    <div class="discount-badges">
+                        <span class="discount">-25%</span>
+                    </div>
+                    <img src="https://dobrenarty.pl/247877-large_default/bergson-kurtka-narciarska-eminence-xmt-orange.jpg" alt="">
+                    <div class="bottom-right">
+                        <p>Bergson kurtka narciarska Eminence XMT Orange<br>
+                        <span class="price-1">1199,00 zł</span><span class="price"> 1079,00 zł</span></p>
+                    </div>
+                </div>
+                <div class="items">
+                    <div class="sales-badges">
+                        <span class="sales">WYPRZEDAŻ</span>
+                    </div>
+                    <div class="discount-badges">
+                        <span class="discount">-100 pln</span>
+                    </div>
+                    <img src="https://dobrenarty.pl/229595-large_default/schildkrot-walek-do-cwiczen-dual-core-wheels.jpg" alt="">
+                    <div class="bottom-right">
+                        <p>Schildkrot wałek do ćwiczeń Dual Core Wheels<br>
+                        <span class="price-1">159,00 zł</span><span class="price"> 149,00 zł</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="mission-title-div">
+            <p class="mission-title">Nasza misja</p>
+        </div>
+        <section class="mission">
+            <div class="row">
+                <div class="col-6">
+                    <p>Misją firmy <b>dobrenarty.pl</b> jest zwiększenie ilości osób uprawiających sport w zdrowy sposób z dobrze
+                        dobranym sprzętem sportowym.</p>
+                    <p>Firma <b>dobrenarty.pl</b> od 2004 roku zaopatruje w doskonale dobrany sprzęt sportowy klientów z całej
+                        Polski.</p>
+                    <p>Pracujemy z topowymi i sprawdzonymi markami nart takimi jak: <a href="/fischer">Fischer</a>,<a href="/head"> Head</a>, <a href="/rossignol">Rossignol</a>, <a href="/volkl">Völkl</a>, <a href="/k2">K2</a>,
+                        <a href="/majesty">Majesty</a>, <a href="/nordica">Nordica</a>, <a href="/elan">Elan</a>.</p>
+                    <p>Oferujemy buty narciarskie marek <a href="/fischer?stan=nowy&kategorie=buty-narciarskie">Fischer</a>, <a href="">Head</a>, <a href="">Dalbello</a>, <a href="">Rossignol</a>, <a href="">Nordica</a>, <a href="">Alpina</a>, <a href="">Atomic</a> i
+                        <a href="">Salomon</a>.</p>
+                    <p>Na nartach, które sprzedajemy, montujemy wiązania najbardziej zaawansowanych producentów - <a href="">Tyrolia</a>,
+                        <a href="">Marker</a> - dostępne z systemem Grip Walk.</p>
+                    <p>Jeśli chcesz poczuć prawdziwą wolność z długimi podejściami i niepowtarzalnymi zjazdami, mamy w ofercie
+                        narty skiturowe marek <a href="">Majesty</a>, <a href="">Volkl</a>, <a href="">K2</a> i <a href="">Fischer</a> oraz wiązania skiturowe <a href="">ATK</a> i <a href="">Majesty</a> a także foki do
+                        nart tourowych <a href="">Contour</a>, <a href="">Volkl</a> i <a href="">Majesty</a>. Wyśmienite <a href="">buty skiturowe</a> marek <a href="">Scarpa</a> i <a href="">Dalbello</a> dadzą wygodę
+                        przy podejściu i precyzyjną kontrolę przy zjeździe.</p>
+                    <p>Nasze <a href="">snowboardy</a> marek <a href="">Rossignol</a>, <a href="">Head</a> i <a href="">Raven</a> dadzą radość z jazdy na jednej desce zarówno
+                        początkującym, jak i zaawansowanym snowboardzistom. W szczególności polecamy również buty snowboardowe
+                        marki <a href="">Head</a>.</p>
+                </div>
+                <div class="col-6">
+                    <p><a href="">Narty biegowe</a> to popularne biegówki marek <a href="">Fischer</a> i <a href="">Peltonen</a>.
+        
+                        Odkryjesz u nas również bogatą ofertę niezawodnych gogli marek Rossignol, Cairn, Smith, Uvex, POC, Head
+                        i Majesty.
+        
+                        Narciarstwo to również kijki narciarskie - marek LEKI, Komperdell, Gabel, Head i Rossignol.
+                        Modne i wygodne kaski narciarskie marek Cairn, Head, POC, Rossignol, Smith pozwolą cieszyć się
+                        bezpieczeństwem na białych stokach. 
+        
+                        Ciepłe rękawice Leki, Reusch, Viking, Zanier, CMP zapewnią komfort i pewny chwyt kijków.
+        
+                        Odzież narciarska marek X-Bionic, CMP, Rossignol i Peak Perfomance sprawi, że poczujesz się ciepło,
+                        modnie i wygodnie :-) </p>
+                    <p>W ostatnich latach rozszerzyliśmy działalność o dystrybucję letniego sprzętu sportowego takiego jak buty
+                        biegowe, rolki, sprzęt turystyczny, triathlonowy czy hulajnogi marek Mizuno, New Balance, CMP, Adidas,
+                        Brooks, Rollerblade, K2, Motus, Gerber, Reebok, X-Socks, Bergson, Black Diamond, Exped, Ledlenser,
+                        Lifesystems, Lifeventure, AKU, Kayland, Scarpa, Tatonka, Thorn+Fit, Orca, Zoot, Deuter, Teva, Mizu,
+                        Bladerunner, Fila, Leki, Komperdell, Gabel, Rockland, Campingaz, Coleman, GSI, Optimus, Tatonka,
+                        Rockland, Ticket to the moon i wiele innych. </p>
+            
+                </div>
+            
+            </div>
+            <div class="row">
+                <div class="col-12">
+        
+                    <p><b>Zapraszamy na zakupy</b>.  Szybko, wygodnie, w rozsądnych cenach i przede wszystkim bezpiecznie! Świadczą o
+                        tym dziesiątki tysięcy naszych zadowolonych klientów. Nie wahaj się do nas zadzwonić jeśli masz
+                        jakiekolwiek pytania. Chętnie odpowiemy na Twoje pytania. Czekamy na kontakt z Tobą.
+        
+                        Do usłyszenia,</p>
+                    <p><b>Team dobrenarty.pl :-)</b></p>
+                    <p>Zapraszamy również do sklepów stacjonarnych w Krakowie i Modlnicy k.Krakowa.</p>
+                </div>
+        </section>
+
+        <div class="our-shops-div">
+            <p class="mission-title">Nasze sklepy</p>
+        </div>
+
+        <section class="our-shops">
+            <div class="zak">
+                <div class="shop-adress">
+
+                </div>
+                <div class="map">
+                    <img src="https://dobrenarty.pl/themes/dobrenarty/assets/img/infografiki/mapa_krakow.jpg" alt="">
+                </div>
+                <p><a href="#">Zobacz szczegóły mapy></a></p>
+            </div>
+            <div class="mod">
+                <div class="shop-adress">
+                    
+                </div>
+                <div class="map">
+                    <img src="https://dobrenarty.pl/themes/dobrenarty/assets/img/infografiki/mapa_modlnica.jpg" alt="">
+                </div>
+                <p><a href="#">Zobacz szczegóły mapy></a></p>
+            </div>
+        </section>
+</body>
+</html>
